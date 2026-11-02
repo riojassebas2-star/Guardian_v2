@@ -5,6 +5,10 @@ import os, sys, time
 
 carpeta = sys.argv[1] if len(sys.argv) > 1 else "/tmp/zona_cuarentena_test"
 cantidad = int(sys.argv[2]) if len(sys.argv) > 2 else 1000
+real = os.path.realpath(carpeta) if os.path.isabs(carpeta) else ""
+if not real.startswith("/tmp/") or len(real) <= 5:
+    sys.exit("Error: por seguridad solo se permiten carpetas absolutas dentro de /tmp/ (recibí %r)." % carpeta)
+carpeta = real
 os.makedirs(carpeta, exist_ok=True)
 print(f"[Simulador Py] pid {os.getpid()}: atacando {carpeta} con {cantidad} archivos", flush=True)
 for i in range(cantidad):
