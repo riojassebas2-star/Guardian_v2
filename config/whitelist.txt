@@ -1,0 +1,10 @@
+# Procesos legítimos (uno por línea).
+#  - Nombre simple: coincide por nombre exacto Y solo si el ejecutable está en /usr, /bin, /sbin, /lib, /opt o /snap.
+#  - Ruta absoluta: coincidencia exacta de ruta.
+# No agregues intérpretes (bash, python3, perl): cualquier script correría "con permiso".
+systemd
+dpkg
+apt
+apt-get
+gnome-shell
+Xorg

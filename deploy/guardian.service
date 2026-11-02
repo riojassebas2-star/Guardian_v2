@@ -1,0 +1,23 @@
+[Unit]
+Description=Guardián Híbrido (detección y recuperación ante ransomware)
+After=local-fs.target
+
+[Service]
+Type=notify
+NotifyAccess=main
+ExecStart=/usr/local/sbin/guardian
+# Si lo matan o se cuelga, systemd lo reinicia (el watchdog lo ejecuta el propio guardián).
+Restart=always
+RestartSec=2
+WatchdogSec=20
+OOMScoreAdjust=-1000
+# Endurecimiento (no necesita escribir fuera de /var, /run ni las carpetas protegidas)
+ProtectSystem=full
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+RestrictRealtime=yes
+
+[Install]
+WantedBy=multi-user.target

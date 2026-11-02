@@ -1,0 +1,3 @@
+# Solo para el panel gráfico (opcional). El motor en C no necesita nada.
+# En Ubuntu/Debian:  sudo apt install python3-tk python3-matplotlib
+matplotlib

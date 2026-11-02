@@ -1,0 +1,10 @@
+build/
+guardian
+tests/simulador_estres
+logs/*.jsonl
+logs/*.jsonl.1
+logs/*.pid
+__pycache__/
+*.pyc
+boveda/
+logs/*.sock
